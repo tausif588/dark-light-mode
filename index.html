@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        :root {
+            --bg-color: white;
+            --text-color: black;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        .hello {
+            width: 60%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        button {
+            border: none;
+            outline: none;
+            width: 120px;
+            padding: 10px 0px;
+            border-radius: 6px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="hello">
+        <button id="toggle-mode">Toggle Mode</button>
+        <h1>Hello Bro How are You?</h1>
+        <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. A, aliquam
+            ipsam perferendis cumque consequuntur odit, perspiciatis maiores, eaque
+            corrupti iste dolorem placeat eum. Aperiam numquam commodi aut
+            distinctio debitis laudantium perferendis voluptatum magnam, iusto sit
+            provident consequatur animi, autem ad est nihil rem excepturi sapiente
+            repellat. Repudiandae debitis tempora quo molestiae magni aspernatur
+            ratione sequi mollitia perferendis. Reiciendis, fugit facere. Enim vitae
+            quis accusamus debitis ipsam quo sunt obcaecati, deserunt nobis quia
+            aliquid soluta facere similique assumenda blanditiis nemo quas magnam et
+            ut cumque. Rem tempora nisi, autem maiores illo veniam corrupti
+            explicabo praesentium ex facilis a, laboriosam sapiente, dolorum iusto!
+            Officiis eligendi inventore voluptatem, sit omnis minus. Expedita
+            aspernatur rem odit quis minima dolorem, accusantium, pariatur harum
+            atque sunt eius veritatis esse odio illum nemo, voluptatibus sequi
+            soluta exercitationem perspiciatis nobis nesciunt doloremque officiis ex
+            saepe! Enim accusantium nihil eveniet quis, sit voluptate libero soluta
+            facilis doloremque unde? Veniam minus repellendus autem, maxime sed
+            molestias enim. Similique id deserunt esse eius, ad corrupti voluptas
+            fuga fugiat qui laborum aspernatur atque quo ut odit repudiandae neque
+            illo aut. Hic voluptate quaerat rem eligendi expedita maiores soluta
+            veritatis ex, iste iure molestiae quos nostrum quod reprehenderit quidem
+            dolores incidunt a aut!
+        </p>
+    </div>
+
+    <script>
+        const toggle = document.getElementById("toggle-mode");
+        const currentMode = localStorage.getItem('mode');
+        if (currentMode === 'dark') {
+            document.documentElement.style.setProperty('--bg-color', 'black');
+            document.documentElement.style.setProperty('--text-color', 'white');
+            toggle.innerHTML = 'Light Mode';
+            toggle.style.backgroundColor = "white"
+            toggle.style.color = "black"
+        } else {
+            document.documentElement.style.setProperty('--bg-color', 'white');
+            document.documentElement.style.setProperty('--text-color', 'black');
+            toggle.innerHTML = 'Dark Mode';
+            toggle.style.backgroundColor = "black"
+            toggle.style.color = "white"
+        }
+        toggle.addEventListener('click', () => {
+            if (toggle.innerHTML === 'Light Mode') {
+                document.documentElement.style.setProperty('--bg-color', 'white');
+                document.documentElement.style.setProperty('--text-color', 'black');
+                toggle.innerHTML = 'Dark Mode';
+                toggle.style.backgroundColor = "black"
+                toggle.style.color = "white"
+                localStorage.setItem('mode', 'light');
+            } else {
+                document.documentElement.style.setProperty('--bg-color', 'black');
+                document.documentElement.style.setProperty('--text-color', 'white');
+                toggle.innerHTML = 'Light Mode';
+                toggle.style.backgroundColor = "white"
+                toggle.style.color = "black"
+                localStorage.setItem('mode', 'dark');
+            }
+        });
+    </script>
+</body>
+
+</html>
